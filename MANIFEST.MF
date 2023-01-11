@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Sealed: true
+Rsrc-Class-Path: ./
+Main-Class: com.daniel.kwaterions.Kwaterions
+

@@ -10,9 +10,9 @@ public class Graph extends Canvas{
 	private GraphicsContext gc;
 	public Graph(Canvas c ) {
 		gc =  c.getGraphicsContext2D();
-		init();
+		addLines();
 	}
-	private void init() {
+	private void addLines() {
 		gc.setFill(Color.BLACK);
 		gc.setLineWidth(3.0);
 		gc.strokeLine(0.0,ReadOnly.Y*0.5,ReadOnly.X,ReadOnly.Y*0.5);

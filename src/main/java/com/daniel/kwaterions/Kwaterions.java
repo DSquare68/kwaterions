@@ -1,6 +1,8 @@
 package com.daniel.kwaterions;
 
 import java.io.IOException;
+import java.net.URI;
+import java.nio.file.Path;
 
 import javafx.application.Application;
 import javafx.application.Platform ;
@@ -23,7 +25,7 @@ public class Kwaterions extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        scene = new Scene(loadFXML("/primary"), ReadOnly.X, ReadOnly.Y);
+        scene = new Scene(loadFXML("primary"), ReadOnly.X, ReadOnly.Y);
         scene.setOnKeyPressed(escape());
         stage.setFullScreen(true);
         stage.setScene(scene);
@@ -52,7 +54,10 @@ public class Kwaterions extends Application {
     }
 
     private static Parent loadFXML(String fxml) throws Exception{
-        FXMLLoader fxmlLoader = new FXMLLoader(Kwaterions.class.getResource(fxml + ".fxml"));
+    	URI u = Kwaterions.class.getResource("").toURI();
+    	String s = u.toURL().toString().contains("!/")?u.toString().replace("!/", "!/resources/"):u.toString();
+    	URI uri = new URI(s+fxml+".fxml");
+    	FXMLLoader fxmlLoader = new FXMLLoader(uri.toURL());
         return fxmlLoader.load();
     }
 
