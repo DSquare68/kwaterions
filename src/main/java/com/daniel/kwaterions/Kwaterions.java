@@ -1,8 +1,10 @@
 package com.daniel.kwaterions;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URI;
 import java.nio.file.Path;
+import java.util.Scanner;
 
 import javafx.application.Application;
 import javafx.application.Platform ;
@@ -63,6 +65,9 @@ public class Kwaterions extends Application {
 
     public static void main(String[] args) {
         launch();
+        ScannerMathInputConsole s = new ScannerMathInputConsole();
+        System.out.println("Podaj równanie");
+        Equation e = s.readEquastion();
     }
 
 }

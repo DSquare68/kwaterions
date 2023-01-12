@@ -4,6 +4,7 @@ module com.daniel.kwaterions {
 	requires javafx.graphics;
 	requires java.desktop;
 	requires javafx.base;
+	requires commons.math3;
 
     opens com.daniel.kwaterions to javafx.fxml;
     exports com.daniel.kwaterions;

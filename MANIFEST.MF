@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
 Sealed: true
-Rsrc-Class-Path: ./
+Rsrc-Class-Path: ./resources
 Main-Class: com.daniel.kwaterions.Kwaterions
 
