@@ -14,6 +14,7 @@ import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
@@ -43,8 +44,10 @@ public class Kwaterions extends Application {
 		return new EventHandler<KeyEvent>() {
 			@Override
 			public void handle(KeyEvent event) {
+				if(event.getCode()== KeyCode.ESCAPE) {
 				Platform.exit();
 				System.exit(0);
+				}
 			}
 		};
 	}
@@ -64,10 +67,12 @@ public class Kwaterions extends Application {
     }
 
     public static void main(String[] args) {
-        launch();
-        ScannerMathInputConsole s = new ScannerMathInputConsole();
+    	Runnable r = ()->{ ScannerMathInputConsole s = new ScannerMathInputConsole();
         System.out.println("Podaj równanie");
-        Equation e = s.readEquastion();
+        Equation e = s.readEquastion();};
+        Thread t1 = new Thread(r);
+        t1.start();
+        launch();
     }
 
 }
